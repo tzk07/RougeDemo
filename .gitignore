@@ -361,3 +361,22 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+# UE 引擎自动生成文件（全部忽略，永不提交）
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+*.VC.db
+*.opensdf
+*.sdf
+*.sln.docstates
+.vs/
+
+# UE 项目核心文件（保留，必须提交）
+!Config/
+!Content/
+!Source/
+!*.uproject
+!*.sln
