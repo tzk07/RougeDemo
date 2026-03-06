@@ -1,6 +1,6 @@
 # UE5 C++ Roguelike Survival Prototype
 
-基于 Unreal Engine 5 纯 C++ 开发的 Roguelike 生存类游戏核心玩法原型（MVP）。本项目目前仅专注于验证底层业务逻辑的健壮性、组件化架构的可扩展性以及核心玩法的代码闭环，暂未实现复杂的视觉表现（如动画与特效）。
+基于 Unreal Engine 5 纯 C++ 开发的 Roguelike 生存类游戏核心玩法原型。本项目目前仅专注于验证底层业务逻辑的健壮性、组件化架构的可扩展性以及核心玩法的代码闭环，暂未实现复杂的视觉表现（如动画与特效）。
 
 ## 🎮 核心玩法闭环 (Gameplay Loop)
 
@@ -14,12 +14,12 @@
 
 通过 C++ 继承与多态设计了高扩展性的武器基类 `WeaponBase`，目前实现了三种特性各异的武器：
 1. **法球 (Magic Orb):** 基础的投射物攻击。
-2. **光束 (Beam):** 持续性的射线伤害。
-3. **圆环 (Ring):** 环绕角色周身的范围判定武器。
+2. **光束 (Beam):** 穿透性的直线攻击。
+3. **圆环 (Ring):** 以角色为中心的圆形范围攻击。
 
 ## 🛠️ 技术架构亮点 (Technical Highlights)
 
-* **组件化设计 (ActorComponent):** 将角色的核心能力高度解耦，拆分为 `AutoAttackComponent`（自动攻击）、`HealthComponent`（生命值管理）和 `ExperienceComponent`（经验与升级逻辑），便于后续挂载到不同实体上。
+* **组件化设计 (ActorComponent):** 将角色的核心能力高度解耦，拆分为 `EquippedWeapons`（武器挂载）、`HealthComponent`（生命值管理）和 `ExperienceComponent`（经验与升级逻辑），便于后续挂载到不同实体上。
 * **状态与流程控制:** 通过定制 `RougeGameMode` 与 `RougePlayerController`，接管了全局的刷怪节奏、UI 唤起（升级三选一面板）以及输入状态的切换。
 * **纯 C++ 驱动:** 核心业务逻辑均由 C++ 编写，为后续的性能优化打下了基础，蓝图仅用于资源引用和少量表现层桥接。
 
